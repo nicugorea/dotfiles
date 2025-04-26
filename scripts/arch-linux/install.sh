@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install packages
-su -c "pacman -Sy --noconfirm openssh keychain git stow neovim ripgrep fzf gcc lazygit zsh"
+su -c "pacman -Sy --noconfirm git stow neovim ripgrep fzf gcc lazygit zsh"
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
