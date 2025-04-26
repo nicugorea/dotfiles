@@ -1,5 +1,7 @@
 #!/bin/bash
 
+su -c "pacman -Sy --noconfirm openssh keychain"
+
 # Start and enable SSH service
 su -c "systemctl enable --now sshd"
 
