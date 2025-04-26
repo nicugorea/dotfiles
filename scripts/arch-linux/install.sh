@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install packages
-su -c "pacman -Sy --noconfirm git stow neovim ripgrep fzf gcc lazygit zsh"
+su -c "pacman -Sy --noconfirm openssh keychain git stow neovim ripgrep fzf gcc lazygit zsh"
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -12,9 +12,9 @@ if [ -d "$HOME/dotfiles" ]; then
     rm -rf "$HOME/dotfiles"
 fi
 
-# Clone dotfiles repository using SSH
+# Clone dotfiles repository
 echo "Cloning dotfiles repository..."
-git clone git@github.com:nicugorea/dotfiles.git "$HOME/dotfiles" || {
+git clone https://github.com/nicugorea/dotfiles.git "$HOME/dotfiles" || {
     echo "ERROR: Failed to clone repository"
     exit 1
 }
