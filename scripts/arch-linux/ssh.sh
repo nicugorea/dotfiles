@@ -8,7 +8,7 @@ su -c "systemctl enable --now sshd"
 
 # Generate SSH key
 echo -e "\nGenerating SSH key for GitHub..."
-ssh-keygen -t ed25519 -C "github-key" -f "$HOME/.ssh/github" -N ""
+ssh-keygen -t ed25519 -C "nicugorea99@gmail.com" -f "$HOME/.ssh/github" 
 
 # Add key to SSH agent
 eval "$(ssh-agent -s)"
