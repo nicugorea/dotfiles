@@ -24,3 +24,9 @@ read -p "Press Enter to continue after you've added the key to GitHub..."
 # Test GitHub connection
 echo -e "\nTesting connection to GitHub..."
 ssh -T git@github.com
+
+# Navigate to the dotfiles directory
+cd "$HOME/dotfiles" || exit 1
+
+# Set the new SSH URL
+git remote set-url origin "git@github.com:nicugorea/dotfiles.git"
