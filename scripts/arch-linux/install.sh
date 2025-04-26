@@ -10,7 +10,7 @@ locale-gen
 su -c "pacman -Sy --noconfirm openssh keychain git stow neovim ripgrep fzf gcc lazygit zsh"
 
 # Setting zsh as default shell
-chsh -s /bin/zsh
+chsh -s $(which zsh)
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
