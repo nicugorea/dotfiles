@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install packages
-su -c "pacman -S --noconfirm stow neovim ripgrep fzf gcc lazygit zsh"
+su -c "pacman -S --noconfirm openssh git stow neovim ripgrep fzf gcc lazygit zsh"
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -14,10 +14,13 @@ fi
 
 # Clone dotfiles repository using SSH
 echo "Cloning dotfiles repository..."
-git clone git@github.com:nicugorea/dotfiles.git "$HOME/dotfiles"
+git clone git@github.com:nicugorea/dotfiles.git "$HOME/dotfiles" || {
+    echo "ERROR: Failed to clone repository"
+    exit 1
+}
 
 # Stow all directories except 'scripts'
-cd "$HOME/dotfiles"
+cd "$HOME/dotfiles" || exit
 for dir in */; do
     if [ "$dir" != "scripts/" ]; then
         echo "Stowing $dir..."
