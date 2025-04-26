@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Uncomment the desired locale in locale.gen
+sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+
+# Generate the locale
+locale-gen
+
 # Install packages
 su -c "pacman -Sy --noconfirm openssh keychain git stow neovim ripgrep fzf gcc lazygit zsh"
 
