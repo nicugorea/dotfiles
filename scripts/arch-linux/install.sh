@@ -12,6 +12,7 @@ su -c "pacman -Sy --noconfirm openssh unzip fd keychain git stow neovim ripgrep 
 # Install Volta
 curl https://get.volta.sh | bash
 volta install node
+volta install pnpm
 
 # Setting zsh as default shell
 chsh -s $(which zsh)

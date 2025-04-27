@@ -1,23 +1,20 @@
 return {
-  "folke/trouble.nvim",
-  specs = {
-    "folke/snacks.nvim",
-    opts = function(_, opts)
-      return vim.tbl_deep_extend("force", opts or {}, {
-        picker = {
-          actions = require("trouble.sources.snacks").actions,
-          win = {
-            input = {
-              keys = {
-                ["<c-t>"] = {
-                  "trouble_open",
-                  mode = { "n", "i" },
-                },
-              },
-            },
-          },
+    "folke/trouble.nvim",
+    opts = {
+        focus = true,
+        win = { type = "float", focus = true },
+        keys = {
+
+            -- The defaults for these are reversed but when having a floating window I want it to close on <cr>
+            o = "jump",
+            ["<cr>"] = "jump_close",
         },
-      })
-    end,
-  },
+    },
+    keys = {
+        {
+            "<leader>xx",
+            "<cmd>Trouble diagnostics toggle<cr>",
+            desc = "Diagnostics (Trouble)",
+        },
+    },
 }

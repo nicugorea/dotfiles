@@ -30,17 +30,9 @@ vim.opt.showmode = false -- Hide default mode text (since lualine shows it)
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
 
--- Transparent background
-vim.cmd([[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]])
-
 -- Clipboard
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+    vim.opt.clipboard = "unnamedplus"
 end)
 
 -- Sets how neovim will display certain whitespace characters in the editor.
