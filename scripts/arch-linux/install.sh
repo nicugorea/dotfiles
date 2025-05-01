@@ -7,7 +7,7 @@ sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 
 # Install packages
-su -c "pacman -Sy --noconfirm openssh unzip fd keychain git stow neovim ripgrep fzf gcc lazygit zsh"
+su -c "pacman -Sy --noconfirm openssh unzip fd keychain git stow neovim ripgrep fzf gcc lazygit zsh zellij"
 
 # Install Volta
 curl https://get.volta.sh | bash
