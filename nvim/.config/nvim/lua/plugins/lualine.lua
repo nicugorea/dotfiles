@@ -2,19 +2,25 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        local function attached_lsp()
-            local clients = vim.lsp.get_clients({ bufnr = 0 })
-            if #clients == 0 then
-                return "󱈬 No LSP"
+        local function get_conform_formatter()
+            -- Get the current filetype
+            local ft = vim.bo.filetype
+            if not ft or ft == "" then
+                return "No formatter" -- No filetype, no formatter
             end
 
-            local client_names = {}
-            for _, client in ipairs(clients) do
-                table.insert(client_names, client.name)
-            end
+            -- Get Conform's formatters for this filetype
+            local conform = require("conform")
+            local formatters = conform.formatters_by_ft[ft] or {}
 
-            return "󱂬 " .. table.concat(client_names, ", ")
+            -- If multiple formatters are assigned, join them with a comma
+            if #formatters > 0 then
+                return "󰉢 " .. table.concat(formatters, ", ")
+            else
+                return "No formatter" -- No formatter assigned
+            end
         end
+
         require("lualine").setup({
             options = {
                 component_separators = "|",
@@ -24,7 +30,7 @@ return {
                 lualine_a = { "mode" },
                 lualine_b = { "branch", "diff", "diagnostics" },
                 lualine_c = { "filename" },
-                lualine_x = { attached_lsp, "encoding", "fileformat", "filetype" },
+                lualine_x = { "filetype", "lsp_status", get_conform_formatter },
                 lualine_y = { "progress" },
                 lualine_z = { "location" },
             },

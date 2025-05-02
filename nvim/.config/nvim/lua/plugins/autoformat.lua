@@ -4,8 +4,8 @@ return {
     cmd = { "ConformInfo" },
     keys = {
         {
-            "<C-f><C-d>",
-            function()
+            "<leader>fmt",
+            function(  )
                 require("conform").format({ async = true, lsp_fallback = true })
             end,
             mode = "",
@@ -20,6 +20,9 @@ return {
                 javascriptreact = { "biome" },
                 typescript = { "biome" },
                 typescriptreact = { "biome" },
+                kdl = { "kdlfmt" },
+                zsh = { "zshfmt" },
+                cs = { "dotnet_format" },
             },
             format_on_save = {
                 timeout_ms = 500,

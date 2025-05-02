@@ -1,4 +1,4 @@
-require("settings")
-require("keymaps")
-require("autocommands")
+require("core.settings")
+require("core.keymaps")
+require("core.highlighting")
 require("config.lazy")

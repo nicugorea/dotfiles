@@ -6,19 +6,7 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    init = function()
-        vim.keymap.set("n", "<M-/>", function()
-            if vim.v.count1 == 2 then
-                Snacks.terminal(nil, { win = { position = "float" } })
-            else
-                Snacks.terminal(nil, { win = { position = "bottom" } })
-            end
-        end)
-        vim.keymap.set("t", "<M-/>", "<cmd>close<cr>", { desc = "Hide Terminal" })
-    end,
     opts = {
-        dashboard = { enabled = true },
-        bigfile = { enabled = true },
         animate = { enabled = true },
         indent = { enabled = true },
         notifier = {
@@ -73,7 +61,7 @@ return {
             function()
                 Snacks.lazygit()
             end,
-            desc = "Open [L]azy[G]it",
+            desc = "[L]azy [G]it",
         },
 
         -- Picker
@@ -82,101 +70,71 @@ return {
             function()
                 Snacks.picker.files(commonPickerOptions)
             end,
-            desc = "Find Files",
-        },
-        {
-            "<leader>fb",
-            function()
-                Snacks.picker.buffers(commonPickerOptions)
-            end,
-            desc = "Find Buffers",
-        },
-        {
-            "<leader>fg",
-            function()
-                Snacks.picker.git_files(commonPickerOptions)
-            end,
-            desc = "Find Git Files",
+            desc = "[F]ind [F]ile",
         },
         {
             "<leader>fr",
             function()
                 Snacks.picker.recent(commonPickerOptions)
             end,
-            desc = "Recent",
+            desc = "[F]ind [R]ecent file",
         },
         {
-            "<leader>sb",
+            "<leader>fb",
             function()
                 Snacks.picker.lines()
             end,
-            desc = "Search Buffer Lines",
+            desc = "[F]ind text in [B]uffer",
         },
         {
-            "<leader>sB",
-            function()
-                Snacks.picker.grep_buffers(commonPickerOptions)
-            end,
-            desc = "Search Open Buffers",
-        },
-        {
-            "<leader>sg",
+            "<leader>fw",
             function()
                 Snacks.picker.grep(commonPickerOptions)
             end,
-            desc = "Search Grep",
+            desc = "[F]ind text in [W]orkspace",
         },
         {
-            "<leader>sk",
+            "<leader>fk",
             function()
                 Snacks.picker.keymaps()
             end,
-            desc = "Keymaps",
+            desc = "[F]ind [K]eymap",
         },
         {
-            "<leader>ss",
+            "<leader>fs",
             function()
                 Snacks.picker.lsp_symbols()
             end,
-            desc = "LSP Symbols",
+            desc = "[F]ind [S]ymbol",
         },
         {
-            "<leader>sS",
-            function()
-                Snacks.picker.lsp_workspace_symbols()
-            end,
-            desc = "LSP Workspace Symbols",
-        },
-
-        -- LSP
-        {
-            "gd",
-            function()
-                Snacks.picker.lsp_definitions()
-            end,
-            desc = "Goto Definition",
-        },
-        {
-            "gD",
-            function()
-                Snacks.picker.lsp_declarations()
-            end,
-            desc = "Goto Declaration",
-        },
-        {
-            "gr",
+            "<leader>fR",
             function()
                 Snacks.picker.lsp_references()
             end,
             nowait = true,
-            desc = "References",
+            desc = "[F]ind [R]eference",
         },
         {
-            "gI",
+            "<leader>fd",
+            function()
+                Snacks.picker.lsp_definitions()
+            end,
+            desc = "[F]ind [D]efinition",
+        },
+        {
+            "<leader>fD",
+            function()
+                Snacks.picker.lsp_declarations()
+            end,
+            desc = "[F]ind [D]eclaration",
+        },
+        {
+            "<leader>fi",
             function()
                 Snacks.picker.lsp_implementations()
             end,
-            desc = "Goto Implementation",
+            desc = "[F]ind [I]mplementation",
         },
 
         -- Explorer
@@ -185,16 +143,7 @@ return {
             function()
                 Snacks.explorer(commonPickerOptions)
             end,
-            desc = "File Explorer",
-        },
-
-        -- Rename
-        {
-            "<leader>rf",
-            function()
-                Snacks.rename.rename_file()
-            end,
-            desc = "Rename File",
+            desc = "[E]xplorer",
         },
 
         -- Notifier
@@ -203,7 +152,7 @@ return {
             function()
                 Snacks.notifier.show_history()
             end,
-            desc = "Notification History",
+            desc = "[N]otification [H]istory",
         },
     },
 }
