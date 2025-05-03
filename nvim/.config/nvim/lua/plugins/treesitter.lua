@@ -13,6 +13,12 @@ return {
             "markdown_inline",
             "c_sharp",
             "json",
+            "typescript",
+            "javascript",
+            "kdl",
+            "css",
+            "gitignore",
+            "sql",
         },
         auto_install = true,
         highlight = {

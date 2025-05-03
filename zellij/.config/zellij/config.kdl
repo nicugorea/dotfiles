@@ -1,7 +1,8 @@
 keybinds clear-defaults=true {
     shared {
-        bind "Ctrl q" { Quit; }
+        bind "Ctrl q" { Detach; }
         bind "Ctrl t" { SwitchToMode "Tab"; }
+        bind "Ctrl s" { SwitchToMode "Session"; }
     }
     tab {
         bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
@@ -19,6 +20,15 @@ keybinds clear-defaults=true {
         bind "8" { GoToTab 8; SwitchToMode "Normal"; }
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
+    }
+    session {
+        bind "Ctrl m" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            };
+            SwitchToMode "Normal"
+        }
     }
 }
 
