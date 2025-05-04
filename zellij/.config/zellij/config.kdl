@@ -29,6 +29,7 @@ keybinds clear-defaults=true {
             };
             SwitchToMode "Normal"
         }
+        bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
 }
 

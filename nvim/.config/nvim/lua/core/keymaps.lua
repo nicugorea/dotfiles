@@ -11,11 +11,8 @@ vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
--- Jump backward (instead of Ctrl-o)
-vim.keymap.set("n", "<C-j>", "<C-o>", { noremap = true, silent = true })
-
--- Jump forward (instead of Ctrl-i)
-vim.keymap.set("n", "<C-k>", "<C-i>", { noremap = true, silent = true })
+-- This cycles between two most recent buffers
+vim.keymap.set("n", "<C-Tab>", "<C-^>", { desc = "Toggle between last two buffers" })
 
 -- Paste without losing the saved data in the register
 vim.keymap.set("x", "p", function()
