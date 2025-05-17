@@ -57,11 +57,11 @@ return {
     keys = {
         -- LazyGit
         {
-            "<leader>lg",
+            "<leader>og",
             function()
                 Snacks.lazygit()
             end,
-            desc = "[L]azy [G]it",
+            desc = "[O]pen [G]it",
         },
 
         -- Picker

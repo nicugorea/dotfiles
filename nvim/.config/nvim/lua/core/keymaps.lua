@@ -21,3 +21,7 @@ vim.keymap.set("x", "p", function()
     vim.cmd('normal! "_dP') -- Delete into black hole, then paste
     vim.fn.setreg('"', old_reg, old_regtype) -- Restore the yank register
 end, { noremap = true, silent = true })
+
+vim.keymap.set({ "n", "x" }, "x", '"_x', { noremap = true, silent = true })
+vim.keymap.set("n", "c", '"_c', { noremap = true, silent = true })
+vim.keymap.set("n", "C", '"_C', { noremap = true, silent = true })

@@ -4,12 +4,12 @@ return {
     cmd = { "ConformInfo" },
     keys = {
         {
-            "<leader>fm",
+            "<leader>rf",
             function()
                 require("conform").format({ async = true, lsp_fallback = true })
             end,
             mode = "",
-            desc = "Format buffer",
+            desc = "[R]efactor [F]ormat",
         },
     },
     config = function()
@@ -20,9 +20,6 @@ return {
                 javascriptreact = { "biome" },
                 typescript = { "biome" },
                 typescriptreact = { "biome" },
-                kdl = { "kdlfmt" },
-                zsh = { "zshfmt" },
-                cs = { "dotnet_format" },
                 json = { "biome" },
             },
             format_on_save = {

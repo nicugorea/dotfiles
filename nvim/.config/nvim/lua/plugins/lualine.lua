@@ -21,6 +21,15 @@ return {
             end
         end
 
+        local function macro_recording()
+            local recording_register = vim.fn.reg_recording()
+            if recording_register ~= "" then
+                return "REC @" .. recording_register
+            else
+                return ""
+            end
+        end
+
         require("lualine").setup({
             options = {
                 component_separators = "|",
@@ -29,7 +38,7 @@ return {
             sections = {
                 lualine_a = { "mode" },
                 lualine_b = { "branch", "diff", "diagnostics" },
-                lualine_c = { "filename" },
+                lualine_c = { { "filename", path = 1 }, macro_recording },
                 lualine_x = { "filetype", "lsp_status", get_conform_formatter },
                 lualine_y = { "progress" },
                 lualine_z = { "location" },

@@ -15,12 +15,12 @@ layout {
   }
 
   tab name="2. dev server" {
-    pane command="bash" {
+    pane command="zsh" {
         args "-c" "pnpm install && pnpm dev"
     }
   }
 
   tab name="3. commands" {
-    pane command="bash"
+    pane 
   }
 }

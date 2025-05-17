@@ -22,7 +22,7 @@ keybinds clear-defaults=true {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
     }
     session {
-        bind "Ctrl m" {
+        bind "m" {
             LaunchOrFocusPlugin "session-manager" {
                 floating true
                 move_to_focused_tab true
@@ -86,3 +86,9 @@ show_startup_tips false
 // Default: true
 // 
 show_release_notes false
+
+// Whether sessions should be serialized to the cache folder (including their tabs/panes, cwds and running commands) so that they can later be resurrected
+// (Requires restart)
+//
+session_serialization false
+

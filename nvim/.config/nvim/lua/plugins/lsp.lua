@@ -20,7 +20,20 @@ return {
                                                 completion = {
                                                     callSnippet = "Replace",
                                                 },
+                                                workspace = {
+                                                    -- Make the server aware of Neovim runtime files and plugins
+                                                    library = { vim.env.VIMRUNTIME },
+                                                },
                                             },
+                                        },
+                                    },
+                                    biome = {
+                                        filetypes = {
+                                            "json",
+                                            "javascript",
+                                            "typescript",
+                                            "javascriptreact",
+                                            "typescriptreact",
                                         },
                                     },
                                 }
@@ -46,9 +59,7 @@ return {
                         "lua-language-server", -- lua lsp
 
                         "tailwindcss-language-server", -- tailwindcss lsp
-
                         "typescript-language-server", -- typescript lsp
-
                         "biome",
                     }
 
